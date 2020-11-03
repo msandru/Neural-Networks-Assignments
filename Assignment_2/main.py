@@ -7,6 +7,7 @@ train_set, valid_set, test_set = pickle.load(f, encoding='latin')
 train_set, valid_set, test_set
 f.close()
 
+
 def activation(input):
     if input > 0:
         input = 1
@@ -35,12 +36,14 @@ def train(weights, biases):
                 output = activation(z)
 
                 error = target_check(train_set[1][iterator], j) - output
+                
                 derivative = error * train_set[0][iterator]
 
                 weights[j] = np.add(weights[j], derivative * alpha)
                 biases[j] = biases[j] + error * alpha
 
         nr_iterations -= 1
+
 
 def test(weights, biases):
     goodResults = 0
@@ -56,11 +59,13 @@ def test(weights, biases):
     print("good results: ", goodResults)
     print("probability: ", (goodResults * 100) / len(test_set[0]))
 
+
 def main():
     weights = np.zeros((10, 784))
 
     biases = np.zeros(784)
     train(weights, biases)
     test(weights, biases)
+
 
 main()
