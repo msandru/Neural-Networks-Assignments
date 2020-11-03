@@ -46,6 +46,7 @@ def main(file_name):
     print(dict["x"], dict["y"], dict["z"], dict["free"])
 
     numpy_method.numpy_method(dict["x"], dict["y"], dict["z"], dict["free"])
+    
     manual_method.manual_method(dict["x"], dict["y"], dict["z"], dict["free"])
 
     return dict["x"], dict["y"], dict["z"], dict["free"]
