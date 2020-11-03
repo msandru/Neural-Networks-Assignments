@@ -27,20 +27,28 @@ def target_check(t, digit):
 def train(weights, biases):
     nr_iterations = 10
 
-    while (nr_iterations > 0):
+    all_classified = False
 
-        for j in range(0, 10):
-            for iterator in range(0, len(train_set[0])):
+    while not all_classified and nr_iterations > 0:
+
+        all_classified = True
+
+        for j in range(10):
+
+            for iterator in range(len(train_set[0])):
                 z = np.dot(train_set[0][iterator], weights[j]) + biases[j]
 
                 output = activation(z)
 
                 error = target_check(train_set[1][iterator], j) - output
-                
+
                 derivative = error * train_set[0][iterator]
 
                 weights[j] = np.add(weights[j], derivative * alpha)
                 biases[j] = biases[j] + error * alpha
+
+                if output != target_check(train_set[1][iterator], j):
+                    all_classified = False
 
         nr_iterations -= 1
 
