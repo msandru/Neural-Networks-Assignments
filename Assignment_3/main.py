@@ -4,7 +4,7 @@ import pickle, gzip, numpy as np
 from Assignment_3 import functions as functions
 
 alpha = 0.05
-neurons_layer_1 = 10
+neurons_layer_1 = 100
 regularization_parameter = 0.0000001
 
 f = gzip.open('mnist.pkl.gz', 'rb')
