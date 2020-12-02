@@ -40,12 +40,12 @@ def train(weights, biases):
 
                 output = activation(z)
 
-                error = target_check(train_set[1][iterator], j) - output
+                delta = target_check(train_set[1][iterator], j) - output
 
-                derivative = error * train_set[0][iterator]
+                weight_delta = delta * train_set[0][iterator]
 
-                weights[j] = np.add(weights[j], derivative * alpha)
-                biases[j] = biases[j] + error * alpha
+                weights[j] = np.add(weights[j], weight_delta * alpha)
+                biases[j] = biases[j] + delta * alpha
 
                 if output != target_check(train_set[1][iterator], j):
                     all_classified = False
