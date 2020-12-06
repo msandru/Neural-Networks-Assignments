@@ -38,8 +38,6 @@ def train():
             output = np.zeros(10)
             output[goal[index]] = 1
 
-            #print(functions.cross_entropy(layer_2, output))
-
             layer_2_delta = layer_2 - output
             layer_2_delta = layer_2_delta.reshape((1, 10))
 

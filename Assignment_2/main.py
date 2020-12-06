@@ -37,7 +37,7 @@ def train(weights, biases):
 
             for iterator in range(len(train_set[0])):
                 z = np.dot(train_set[0][iterator], weights[j]) + biases[j]
-
+                
                 output = activation(z)
 
                 delta = target_check(train_set[1][iterator], j) - output

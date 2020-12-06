@@ -1,9 +1,5 @@
 import numpy as np
 
-def cross_entropy(predictions, targets):
-    ce = -np.sum(targets * np.log(predictions))
-    return ce
-
 def sigmoid_derivative(layer):
     return layer * (1 - layer)
 
